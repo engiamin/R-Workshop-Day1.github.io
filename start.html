@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>GETTING STARTED</title>
+
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-sm-12 col-md-8 col-lg-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Day 1</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">About Workshop</a>
+</li>
+<li>
+  <a href="agenda.html">Agenda</a>
+</li>
+<li>
+  <a href="start.html">Getting Started</a>
+</li>
+<li>
+  <a href="research.html">The Research</a>
+</li>
+<li>
+  <a href="code.html">Coding with R</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">GETTING STARTED</h1>
+
+</div>
+
+
+<style type="text/css">
+  body{
+  font-size: 14pt;
+}
+</style>
+<div style="margin-bottom:50px;">
+
+</div>
+<div id="what-is-r" class="section level1">
+<h1>What is R?</h1>
+<p>R is a language and environment for statistical computing and graphics. R provides a wide variety of statistical (linear and nonlinear modeling, classical statistical tests, time-series analysis, classification, clustering, …) and graphical techniques, and is highly extensible.</p>
+<p>Nearly everything you may need in terms of statistics has already been programmed and made available in R (either as part of the main package or as a user-contributed package).</p>
+<p>With R you can write functions, do calculations, apply most available statistical techniques, create simple or complicated graphs, and even write your own library functions.</p>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="the-data-analysis-workflow" class="section level1">
+<h1>The Data Analysis Workflow</h1>
+<p>Data analysis is a term that describes the process of turning raw data into knowledge. This involves data wrangling, data exploration and analysis, and finally communicating the findings.</p>
+<div class="figure" style="text-align: center">
+<img src="images/workflow.001.jpeg" alt="Source: [R for Data Science by Grolemund &amp; Wickham, 2017.](https://r4ds.had.co.nz/introduction.html)" width="80%" />
+<p class="caption">
+Source: <a href="https://r4ds.had.co.nz/introduction.html">R for Data Science by Grolemund &amp; Wickham, 2017.</a>
+</p>
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+<div id="data-wrangling" class="section level2">
+<h2>Data Wrangling</h2>
+<div class="figure" style="text-align: center">
+<img src="images/wf2.png" alt="Source: [Introduction to R by Stats Education](http://statseducation.com/Introduction-to-R/modules/getting%20started/workflow/)" width="80%" />
+<p class="caption">
+Source: <a href="http://statseducation.com/Introduction-to-R/modules/getting%20started/workflow/">Introduction to R by Stats Education</a>
+</p>
+</div>
+<p>Before we can do any kind of analysis we need to be able to collect our data and prepare it. This is the most time consuming part of any data analysis project!</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<div id="step-1-importing-data" class="section level3">
+<h3>Step 1: Importing Data</h3>
+<p>When it comes to importing data from multiple sources and of multiple formats, R is very powerful.</p>
+<p>R can grab data from many sources including: * Spreadsheets and documents: .csv, .txt. .xls, etc… * Statistical software: SPSS, SAS, Stata * Web Scraping * Databases: MySQL, Orancel, etc…</p>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="step-2-tidying-data" class="section level3">
+<h3>Step 2: Tidying Data</h3>
+<p>Tidying your data means storing it in a consistent form that matches the semantics of the dataset with the way it is stored. In brief, when your data is tidy, each column is a variable, and each row is an observation.</p>
+<p>Tidy data is important because the consistent structure lets you focus your struggle on questions about the data, not fighting to get the data into the right form for different functions.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="step-3-transforming-data" class="section level3">
+<h3>Step 3: Transforming Data</h3>
+<p>Once we have data into R and begin to tidy the data we usually need to transform multiple aspects of the data.</p>
+<p>Transformation includes narrowing in on observations of interest (like all people in one city, or all data from the last year), creating new variables that are functions of existing variables (like computing speed from distance and time), and calculating a set of summary statistics (like counts or means).</p>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+</div>
+<div id="data-exploration-and-analysis" class="section level2">
+<h2>Data Exploration and Analysis</h2>
+<p>Once you have tidy data with the variables you need, there are two main engines of knowledge generation: <strong>visualisation</strong> and <strong>modelling</strong>. These have complementary strengths and weaknesses so any real analysis will iterate between them many times.</p>
+<p>R is one of the most capable languages to explore and analyze data. With over 10,000 packages it can be hard to find models or plots that do not already have multiple functions in R.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<div id="step-4-visualizing-data" class="section level3">
+<h3>Step 4: Visualizing Data</h3>
+<p>Visualisation is a fundamentally human activity. A good visualisation will show you things that you did not expect, or raise new questions about the data. A good visualisation might also hint that you’re asking the wrong question, or you need to collect different data. Visualisations can surprise you!</p>
+<p>There are multiple ways to vizualize data in R. The base graphics are easy to use and outperform Stata, SAS and SPSS. In this workshop we will be using the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> package.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="step-5-modelling-data" class="section level3">
+<h3>Step 5: Modelling Data</h3>
+<p>Models are complementary tools to visualisation. Once you have made your questions sufficiently precise, you can use a model to answer them. Models are a fundamentally mathematical or computational tool, so they generally scale well. But every model makes assumptions, and by its very nature a model cannot question its own assumptions.</p>
+<p>R can handle anything from simple t-tests to extensive machine learning algorithms on big data.</p>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+</div>
+<div id="communication" class="section level2">
+<h2>Communication</h2>
+<p>The last step of data science is communication, an absolutely critical part of any data analysis project. It doesn’t matter how well your models and visualisation have led you to understand the data unless you can also communicate your results to others.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<div id="step-6-communicating-findings" class="section level3">
+<h3>Step 6: Communicating Findings</h3>
+<p>In this workshop, we won’t be tacking how to communicate results using R but here are some tools for your reference:</p>
+<ul>
+<li><p>R connects easily to:</p>
+<ul>
+<li><a href="https://github.com/">Github</a></li>
+<li><a href="https://rpubs.com/">RPubs</a></li>
+<li><a href="https://www.rstudio.com/products/connect/">RStudio Connect</a> which can be used to publish findings.</li>
+</ul></li>
+<li><p><a href="https://shiny.rstudio.com/"><code>shiny</code></a> provides an interactive data visualization and javascript environment.</p></li>
+<li><p><a href="https://plotly.com/r/"><code>plotly</code></a> allows for interactive graphics for webpages.</p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/"><code>R Markdown</code></a> can be used to make webpages, books, slides, and many other documents.</p></li>
+</ul>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+</div>
+</div>
+<div id="getting-r-and-rstudio" class="section level1">
+<h1>Getting R and RStudio</h1>
+<p>R is available for free download and installation at: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></p>
+<p>RStudio is available for free download and installation at: <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a></p>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="ways-to-use-r" class="section level1">
+<h1>Ways to use R</h1>
+<div id="base-r" class="section level2">
+<h2>1. Base R</h2>
+<p>When you install R you will see what is called base R.</p>
+<div class="figure" style="text-align: center">
+<img src="images/r_base.png" alt="Source: [Introduction to R by Stats Education](http://statseducation.com/Introduction-to-R/modules/getting%20started/first-r/)" width="80%" />
+<p class="caption">
+Source: <a href="http://statseducation.com/Introduction-to-R/modules/getting%20started/first-r/">Introduction to R by Stats Education</a>
+</p>
+</div>
+<div id="r-console" class="section level3">
+<h3>R Console</h3>
+<p>The R console is the window on the left. You can type R code into this and then it runs and returns the output in the same window. You must be mindful because this does not save your work and does not provide any helpful tools.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="r-script" class="section level3">
+<h3>R Script</h3>
+<p>The R Script is the window on the right. If you are used to Stata you can think of this as a do file. This is where we write the code and could save it.</p>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+</div>
+<div id="rstudio" class="section level2">
+<h2>2. RStudio</h2>
+<p>RStudio is a software that provides an nifty interface to R. It’s sometimes referred to as an Integrated Development Environment (IDE). Its purpose is to improve your experience with the R software. RStudio cannot run without R being installed on your computer.</p>
+<p><img src="images/interface1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div style="margin-bottom:50px;">
+
+</div>
+<div id="r-source-window" class="section level3">
+<h3>R Source Window</h3>
+<div class="figure" style="text-align: center">
+<img src="images/rstudio_sess_1.png" alt="Source: [Introduction to R by Stats Education](http://statseducation.com/Introduction-to-R/modules/getting%20started/first-r/)" width="80%" />
+<p class="caption">
+Source: <a href="http://statseducation.com/Introduction-to-R/modules/getting%20started/first-r/">Introduction to R by Stats Education</a>
+</p>
+</div>
+<p>The source window is equivalent to the script window in base R. It can be also used to create notebooks and other document formats.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="r-environment" class="section level3">
+<h3>R Environment</h3>
+<div class="figure" style="text-align: center">
+<img src="images/rstudio_sess_2.png" alt="Source: [Introduction to R by Stats Education](http://statseducation.com/Introduction-to-R/modules/getting%20started/first-r/)" width="80%" />
+<p class="caption">
+Source: <a href="http://statseducation.com/Introduction-to-R/modules/getting%20started/first-r/">Introduction to R by Stats Education</a>
+</p>
+</div>
+<p>The environment window is where you can see a list of all available data and functions. On top of this the environment window also has tabs for:</p>
+<ul>
+<li>History: Displays all previous code run in the console.</li>
+<li>Spark: You can integrate RStudio with a Apache Spark installation to work with large data.</li>
+<li>Git: You can use github for a version control.</li>
+</ul>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="r-console-1" class="section level3">
+<h3>R Console</h3>
+<div class="figure" style="text-align: center">
+<img src="images/rstudio_sess_3.png" alt="Source: [Introduction to R by Stats Education](http://statseducation.com/Introduction-to-R/modules/getting%20started/first-r/)" width="80%" />
+<p class="caption">
+Source: <a href="http://statseducation.com/Introduction-to-R/modules/getting%20started/first-r/">Introduction to R by Stats Education</a>
+</p>
+</div>
+<p>Equivalent to the console in Base R. This window will also display results from your R Markdown documents when you create html, pdf or other documents.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="other-tools-pane" class="section level3">
+<h3>Other Tools Pane</h3>
+<div class="figure" style="text-align: center">
+<img src="images/rstudio_sess_4.png" alt="Source: [Introduction to R by Stats Education](http://statseducation.com/Introduction-to-R/modules/getting%20started/first-r/)" width="80%" />
+<p class="caption">
+Source: <a href="http://statseducation.com/Introduction-to-R/modules/getting%20started/first-r/">Introduction to R by Stats Education</a>
+</p>
+</div>
+<p>The final pane in the RStudio window is used to preview files, plots, installed packages, R help and a viewer to view local web content.</p>
+<p>This can allow for easy access to your files. On top of this you can see previews of plots and documents that you are creating. This also has a built in help window. In base R when you search for help it takes you out of R and to a web-browser. In RStudio you can have the help right next to the code you are writing.</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

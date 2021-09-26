@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>AGENDA</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Day 1</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">About Workshop</a>
+</li>
+<li>
+  <a href="agenda.html">Agenda</a>
+</li>
+<li>
+  <a href="start.html">Getting Started</a>
+</li>
+<li>
+  <a href="research.html">The Research</a>
+</li>
+<li>
+  <a href="code.html">Coding with R</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">AGENDA</h1>
+
+</div>
+
+
+<style type="text/css">
+  body{
+  font-size: 14pt;
+}
+</style>
+<div style="margin-bottom:200px;">
+
+</div>
+<html>
+<head><meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+span.cls_004{font-family:Times,serif;font-size:16.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_004{font-family:Times,serif;font-size:16.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_005{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_005{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_006{font-family:Times,serif;font-size:8.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_006{font-family:Times,serif;font-size:8.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_007{font-family:Times,serif;font-size:11.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_007{font-family:Times,serif;font-size:11.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_008{font-family:Times,serif;font-size:11.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_008{font-family:Times,serif;font-size:11.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_032{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,255);font-weight:normal;font-style:normal;text-decoration: underline}
+div.cls_032{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,255);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_011{font-family:Times,serif;font-size:16.1px;color:rgb(192,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_011{font-family:Times,serif;font-size:16.1px;color:rgb(192,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_033{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: underline}
+div.cls_033{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_012{font-family:Times,serif;font-size:12.1px;color:rgb(0,111,192);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_012{font-family:Times,serif;font-size:12.1px;color:rgb(0,111,192);font-weight:normal;font-style:italic;text-decoration: none}
+span.cls_013{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_013{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:normal;font-style:italic;text-decoration: none}
+span.cls_010{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_010{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_014{font-family:Times,serif;font-size:11.0px;color:rgb(31,31,30);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_014{font-family:Times,serif;font-size:11.0px;color:rgb(31,31,30);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_015{font-family:Times,serif;font-size:11.0px;color:rgb(31,31,30);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_015{font-family:Times,serif;font-size:11.0px;color:rgb(31,31,30);font-weight:normal;font-style:italic;text-decoration: none}
+span.cls_034{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:italic;text-decoration: underline}
+div.cls_034{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:italic;text-decoration: none}
+span.cls_016{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:italic;text-decoration: none}
+div.cls_016{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weight:bold;font-style:italic;text-decoration: none}
+span.cls_035{font-family:Times,serif;font-size:14.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: underline}
+div.cls_035{font-family:Times,serif;font-size:14.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_018{font-family:Times,serif;font-size:14.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_018{font-family:Times,serif;font-size:14.0px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_019{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_019{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_036{font-family:Times,serif;font-size:11.0px;color:rgb(0,0,255);font-weight:normal;font-style:normal;text-decoration: underline}
+div.cls_036{font-family:Times,serif;font-size:11.0px;color:rgb(0,0,255);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_025{font-family:Times,serif;font-size:12.1px;color:rgb(31,31,30);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_025{font-family:Times,serif;font-size:12.1px;color:rgb(31,31,30);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_026{font-family:Times,serif;font-size:12.1px;color:rgb(31,31,30);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_026{font-family:Times,serif;font-size:12.1px;color:rgb(31,31,30);font-weight:normal;font-style:italic;text-decoration: none}
+span.cls_009{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,255);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_009{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,255);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_028{font-family:Times,serif;font-size:14.0px;color:rgb(31,31,30);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_028{font-family:Times,serif;font-size:14.0px;color:rgb(31,31,30);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_029{font-family:Times,serif;font-size:16.1px;color:rgb(54,95,145);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_029{font-family:Times,serif;font-size:16.1px;color:rgb(54,95,145);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_030{font-family:Times,serif;font-size:12.1px;color:rgb(45,45,45);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_030{font-family:Times,serif;font-size:12.1px;color:rgb(45,45,45);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_031{font-family:Times,serif;font-size:12.1px;color:rgb(45,45,45);font-weight:normal;font-style:italic;text-decoration: none}
+div.cls_031{font-family:Times,serif;font-size:12.1px;color:rgb(45,45,45);font-weight:normal;font-style:italic;text-decoration: none}
+-->
+</style>
+<script type="text/javascript" src="6ef6e496-1bbb-11ec-a980-0cc47a792c0a_id_6ef6e496-1bbb-11ec-a980-0cc47a792c0a_files/wz_jsgraphics.js"></script>
+</head>
+<body>
+<div style="position:absolute;left:50%;margin-left:-306px;top:0px;width:612px;height:792px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6ef6e496-1bbb-11ec-a980-0cc47a792c0a_id_6ef6e496-1bbb-11ec-a980-0cc47a792c0a_files/background1.jpg" width=612 height=792></div>
+<div style="position:absolute;left:214.46px;top:108.12px" class="cls_004"><span class="cls_004">Training Workshop</span></div>
+<div style="position:absolute;left:197.90px;top:135.32px" class="cls_004"><span class="cls_004">Data Analysis using R-Software</span></div>
+<div style="position:absolute;left:149.78px;top:162.80px" class="cls_005"><span class="cls_005">28th to 30</span><span class="cls_006"><sup>th</sup></span><span class="cls_005"> of September 2021 & 3</span><span class="cls_006"><sup>rd</sup></span><span class="cls_005"> to 4</span><span class="cls_006"><sup>th</sup></span><span class="cls_005"> of October 2021</span></div>
+<div style="position:absolute;left:40.92px;top:191.18px" class="cls_007"><span class="cls_007">VENUE</span></div>
+<div style="position:absolute;left:220.94px;top:191.18px" class="cls_008"><span class="cls_008">Information Skill Lab 2 (Library Ground Floor)</span></div>
+<div style="position:absolute;left:40.92px;top:216.38px" class="cls_007"><span class="cls_007">INSTRUCTOR</span></div>
+<div style="position:absolute;left:220.94px;top:216.38px" class="cls_008"><span class="cls_008">Engi Amin, Faculty of Economics and Political Science, Cairo University</span></div>
+<div style="position:absolute;left:40.92px;top:241.52px" class="cls_007"><span class="cls_007">WORKGROUP ONEDRIVE LINK</span></div>
+<div style="position:absolute;left:220.94px;top:241.46px" class="cls_032"><span class="cls_032"> </span><A HREF="https://livebueedu-my.sharepoint.com/:f:/g/personal/dalya_bakry_bue_edu_eg/EtuVVozvy_JEpSTxWs6O3eEBZBy0eCD8Ukd-2m2kCwrTyQ?e=E1jR1q">Data Analysis Using R- Software Workshop Material</A> </div>
+<div style="position:absolute;left:270.86px;top:291.86px" class="cls_011"><span class="cls_011">AGENDA</span></div>
+<div style="position:absolute;left:76.02px;top:316.52px" class="cls_033"><span class="cls_033">Day One:</span><span class="cls_005"> 28</span><span class="cls_006"><sup>th</sup></span><span class="cls_005"> of September, 2021 Introduction to Data Analysis in R</span></div>
+<div style="position:absolute;left:76.02px;top:330.62px" class="cls_012"><span class="cls_012">The first day is a basic introduction to the programming language of R. Participants will learn</span></div>
+<div style="position:absolute;left:76.02px;top:344.42px" class="cls_012"><span class="cls_012">how to retrieve data from the internet using R, merge data and produce dataset from their</span></div>
+<div style="position:absolute;left:76.02px;top:358.22px" class="cls_012"><span class="cls_012">research interest</span><span class="cls_013">.</span></div>
+<div style="position:absolute;left:76.02px;top:372.32px" class="cls_010"><span class="cls_010">References: </span><span class="cls_014">Zuur, A., Ieno, E. N., & Meesters, E. (2009). </span><span class="cls_015">A Beginner's Guide to R</span><span class="cls_014">. Springer Science &</span></div>
+<div style="position:absolute;left:76.02px;top:385.16px" class="cls_014"><span class="cls_014">Business Media</span></div>
+<div style="position:absolute;left:168.98px;top:413.14px" class="cls_034"><span class="cls_034">Session 1: Data Generation and Research Questions</span></div>
+<div style="position:absolute;left:87.60px;top:426.58px" class="cls_005"><span class="cls_005">9:00- 10:30</span></div>
+<div style="position:absolute;left:186.98px;top:426.94px" class="cls_005"><span class="cls_005">1.  Getting the Data</span></div>
+<div style="position:absolute;left:186.98px;top:440.74px" class="cls_005"><span class="cls_005">2.  Formulating Research Questions</span></div>
+<div style="position:absolute;left:186.98px;top:454.54px" class="cls_005"><span class="cls_005">3.  Workflow of Data Analysis</span></div>
+<div style="position:absolute;left:186.98px;top:468.34px" class="cls_005"><span class="cls_005">4.  Installing and Running R</span></div>
+<div style="position:absolute;left:257.54px;top:490.66px" class="cls_016"><span class="cls_016">15 minutes break</span></div>
+<div style="position:absolute;left:168.98px;top:519.22px" class="cls_034"><span class="cls_034">Session 2: R coding basics</span></div>
+<div style="position:absolute;left:186.98px;top:533.02px" class="cls_005"><span class="cls_005">1.  Variable Assignment</span></div>
+<div style="position:absolute;left:186.98px;top:546.82px" class="cls_005"><span class="cls_005">2.  Datatypes and Operators</span></div>
+<div style="position:absolute;left:186.98px;top:560.62px" class="cls_005"><span class="cls_005">3.  Basic Plotting</span></div>
+<div style="position:absolute;left:186.98px;top:574.42px" class="cls_005"><span class="cls_005">4.  Basic Control Flows</span></div>
+<div style="position:absolute;left:186.98px;top:588.22px" class="cls_005"><span class="cls_005">5.  Basic Functions</span></div>
+<div style="position:absolute;left:82.02px;top:591.16px" class="cls_005"><span class="cls_005">10:45 - 12:30</span></div>
+<div style="position:absolute;left:261.80px;top:610.54px" class="cls_016"><span class="cls_016">Refreshment break</span></div>
+<div style="position:absolute;left:168.98px;top:653.44px" class="cls_034"><span class="cls_034">Exercises and Applying Coding Basics to Sample Dataset</span></div>
+<div style="position:absolute;left:79.02px;top:658.12px" class="cls_005"><span class="cls_005">13:15 - 15:00</span></div>
+<div style="position:absolute;left:168.98px;top:667.24px" class="cls_012"><span class="cls_012">(Participants will be grouped and will choose to work with the dataset</span></div>
+<div style="position:absolute;left:168.98px;top:681.06px" class="cls_012"><span class="cls_012">from the options sent by Ms. Engi or from their own datasets)</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-306px;top:802px;width:612px;height:792px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6ef6e496-1bbb-11ec-a980-0cc47a792c0a_id_6ef6e496-1bbb-11ec-a980-0cc47a792c0a_files/background2.jpg" width=612 height=792></div>
+<div style="position:absolute;left:76.02px;top:114.42px" class="cls_035"><span class="cls_035">Day Two:</span><span class="cls_018"> 29</span><span class="cls_019"><sup>th</sup></span><span class="cls_018"> of September, 2021 Data Wrangling in R (using tidyverse)</span></div>
+<div style="position:absolute;left:76.02px;top:131.30px" class="cls_012"><span class="cls_012">Data wrangling is the process of gathering and importing data, assessing its structure and quality,</span></div>
+<div style="position:absolute;left:76.02px;top:145.10px" class="cls_012"><span class="cls_012">and cleaning it before actual data analysis, visualization and modeling. Using data retrieved in the</span></div>
+<div style="position:absolute;left:76.02px;top:158.90px" class="cls_012"><span class="cls_012">previous session, participants will assess the quality of retrieved datasets and create variables that</span></div>
+<div style="position:absolute;left:76.02px;top:172.70px" class="cls_012"><span class="cls_012">serve the research question.  Participants will then apply the concepts explained on the datasets they</span></div>
+<div style="position:absolute;left:76.02px;top:186.50px" class="cls_012"><span class="cls_012">submitted.</span></div>
+<div style="position:absolute;left:76.02px;top:200.30px" class="cls_010"><span class="cls_010">Reference: </span><span class="cls_014">Wickham, H., & Grolemund, G. (2016). </span><span class="cls_015">R for data science: import, tidy, transform,</span></div>
+<div style="position:absolute;left:76.02px;top:214.10px" class="cls_015"><span class="cls_015">visualize, and model data</span><span class="cls_014">. " O'Reilly Media, Inc.". Available at: </span><A HREF="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</A> </span></div>
+<div style="position:absolute;left:162.02px;top:236.18px" class="cls_034"><span class="cls_034">Session 1: Importing and Assessing Data</span></div>
+<div style="position:absolute;left:180.02px;top:249.98px" class="cls_005"><span class="cls_005">1.  Importing and Reading Data</span></div>
+<div style="position:absolute;left:180.02px;top:263.78px" class="cls_005"><span class="cls_005">2.  Assessing Data</span></div>
+<div style="position:absolute;left:76.02px;top:274.52px" class="cls_005"><span class="cls_005">9:00- 10:30</span></div>
+<div style="position:absolute;left:180.02px;top:277.58px" class="cls_005"><span class="cls_005">3.  Installing and Loading R Packages</span></div>
+<div style="position:absolute;left:76.02px;top:302.54px" class="cls_016"><span class="cls_016">15 minutes break</span></div>
+<div style="position:absolute;left:162.02px;top:324.68px" class="cls_034"><span class="cls_034">Session 2: Data Cleaning and Tidying</span></div>
+<div style="position:absolute;left:81.36px;top:329.84px" class="cls_005"><span class="cls_005">10:45 - 12:30</span></div>
+<div style="position:absolute;left:173.12px;top:344.12px" class="cls_016"><span class="cls_016">Refreshment break</span></div>
+<div style="position:absolute;left:162.02px;top:369.02px" class="cls_034"><span class="cls_034">Importing Selected Datasets and Applying Data Tidying</span></div>
+<div style="position:absolute;left:162.02px;top:382.82px" class="cls_012"><span class="cls_012">(Using participants’ datasets in the areas of Microeconomics, Macroeconomics</span></div>
+<div style="position:absolute;left:76.02px;top:398.98px" class="cls_005"><span class="cls_005">13:15 - 15:00</span></div>
+<div style="position:absolute;left:162.02px;top:396.62px" class="cls_012"><span class="cls_012">and Business Accounting & Finance)</span></div>
+<div style="position:absolute;left:76.02px;top:436.60px" class="cls_035"><span class="cls_035">Day Three:</span><span class="cls_018"> 30</span><span class="cls_019"><sup>th</sup></span><span class="cls_018"> of September, 2021 Exploratory Data Analysis and</span></div>
+<div style="position:absolute;left:76.02px;top:453.22px" class="cls_018"><span class="cls_018">Visualization in R (using dplyr and ggplot2)</span></div>
+<div style="position:absolute;left:76.02px;top:469.54px" class="cls_012"><span class="cls_012">Exploratory data analysis is used to summarize datasets and discover patterns among the data. Good</span></div>
+<div style="position:absolute;left:76.02px;top:483.28px" class="cls_012"><span class="cls_012">EDA can give us insights beyond formal modeling and hypothesis testing. Participants will learn data</span></div>
+<div style="position:absolute;left:76.02px;top:497.08px" class="cls_012"><span class="cls_012">visualization techniques using the data retrieved and cleaned in the previous sessions.</span></div>
+<div style="position:absolute;left:76.02px;top:511.18px" class="cls_010"><span class="cls_010">Reference: </span><span class="cls_014">Wickham, H., & Grolemund, G. (2016). </span><span class="cls_015">R for data science: import, tidy, transform,</span></div>
+<div style="position:absolute;left:76.02px;top:524.02px" class="cls_015"><span class="cls_015">visualize, and model data</span><span class="cls_014">. " O'Reilly Media, Inc.". Available at: </span><A HREF="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</A> </span></div>
+<div style="position:absolute;left:161.72px;top:547.12px" class="cls_034"><span class="cls_034">Session 1: Data Aggregation and Manipulation</span></div>
+<div style="position:absolute;left:182.72px;top:560.92px" class="cls_005"><span class="cls_005">1.  Piping</span></div>
+<div style="position:absolute;left:84.00px;top:574.30px" class="cls_005"><span class="cls_005">9:00- 10:30</span></div>
+<div style="position:absolute;left:182.72px;top:574.72px" class="cls_005"><span class="cls_005">2.  Generating Summary and Frequency Tables</span></div>
+<div style="position:absolute;left:278.12px;top:597.04px" class="cls_016"><span class="cls_016">15 minutes break</span></div>
+<div style="position:absolute;left:161.72px;top:615.22px" class="cls_034"><span class="cls_034">Session 2: Data Visualization</span></div>
+<div style="position:absolute;left:179.72px;top:629.02px" class="cls_005"><span class="cls_005">1.  Generating simple plots</span></div>
+<div style="position:absolute;left:179.72px;top:642.82px" class="cls_005"><span class="cls_005">2.  Generating multi-faceted plots</span></div>
+<div style="position:absolute;left:81.36px;top:653.14px" class="cls_005"><span class="cls_005">10:45 - 12:30</span></div>
+<div style="position:absolute;left:264.50px;top:678.96px" class="cls_016"><span class="cls_016">Refreshment break</span></div>
+<div style="position:absolute;left:164.30px;top:708.06px" class="cls_034"><span class="cls_034">Applying Data Manipulation Techniques and Visualizations to Selected Datasets</span></div>
+<div style="position:absolute;left:79.02px;top:726.54px" class="cls_005"><span class="cls_005">13:15 - 15:00</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-306px;top:1604px;width:612px;height:792px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6ef6e496-1bbb-11ec-a980-0cc47a792c0a_id_6ef6e496-1bbb-11ec-a980-0cc47a792c0a_files/background3.jpg" width=612 height=792></div>
+<div style="position:absolute;left:76.02px;top:102.66px" class="cls_035"><span class="cls_035">Day Four:</span><span class="cls_018"> 3</span><span class="cls_019"><sup>rd</sup></span><span class="cls_018"> of October, 2021 Statistical Testing and Modeling in R (using caret)</span></div>
+<div style="position:absolute;left:76.02px;top:119.48px" class="cls_012"><span class="cls_012">Statistical modeling is one of the most important aspects of dealing with data. It is used to</span></div>
+<div style="position:absolute;left:76.02px;top:133.28px" class="cls_012"><span class="cls_012">identify patterns in data, untangle multiple influences on an outcome, assess the strength of</span></div>
+<div style="position:absolute;left:76.02px;top:147.08px" class="cls_012"><span class="cls_012">evidence, and forecasting. Participants will learn how to apply different types of regression</span></div>
+<div style="position:absolute;left:76.02px;top:160.88px" class="cls_012"><span class="cls_012">analysis on the selected dataset according to their research question and hypothesis.</span></div>
+<div style="position:absolute;left:76.02px;top:188.48px" class="cls_010"><span class="cls_010">Reference: </span><span class="cls_014">James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). </span><span class="cls_015">An introduction to statistical</span></div>
+<div style="position:absolute;left:76.02px;top:201.32px" class="cls_015"><span class="cls_015">learning</span><span class="cls_014"> (Vol. 112, p. 18). New York: springer.</span></div>
+<div style="position:absolute;left:168.80px;top:224.42px" class="cls_034"><span class="cls_034">Session 1: Parametric and Non-Parametric Tests</span></div>
+<div style="position:absolute;left:186.80px;top:238.22px" class="cls_005"><span class="cls_005">1.  Choosing a test</span></div>
+<div style="position:absolute;left:87.54px;top:251.60px" class="cls_005"><span class="cls_005">9:00- 10:30</span></div>
+<div style="position:absolute;left:186.80px;top:252.02px" class="cls_005"><span class="cls_005">2.  Parametric tests</span></div>
+<div style="position:absolute;left:186.80px;top:265.82px" class="cls_005"><span class="cls_005">3.  Non-parametric tests</span></div>
+<div style="position:absolute;left:257.72px;top:288.08px" class="cls_016"><span class="cls_016">15 minutes break</span></div>
+<div style="position:absolute;left:168.80px;top:305.84px" class="cls_034"><span class="cls_034">Session 2: Regression Analysis</span></div>
+<div style="position:absolute;left:186.80px;top:319.64px" class="cls_005"><span class="cls_005">1.  Linear regression</span></div>
+<div style="position:absolute;left:186.80px;top:333.44px" class="cls_005"><span class="cls_005">2.  Logistic regression</span></div>
+<div style="position:absolute;left:81.36px;top:343.76px" class="cls_005"><span class="cls_005">10:45 - 12:30</span></div>
+<div style="position:absolute;left:186.80px;top:347.24px" class="cls_005"><span class="cls_005">3.  Negative Binomial regression</span></div>
+<div style="position:absolute;left:186.80px;top:361.04px" class="cls_005"><span class="cls_005">4.  Tobit Regression</span></div>
+<div style="position:absolute;left:255.68px;top:383.36px" class="cls_016"><span class="cls_016">Refreshment break</span></div>
+<div style="position:absolute;left:168.80px;top:403.30px" class="cls_016"><span class="cls_016">Applying Statistical Testing and Modeling to Selected Datasets</span></div>
+<div style="position:absolute;left:79.02px;top:407.92px" class="cls_005"><span class="cls_005">13:15- 15:00</span></div>
+<div style="position:absolute;left:76.02px;top:438.52px" class="cls_035"><span class="cls_035">Day Five:</span><span class="cls_018"> 4</span><span class="cls_019"><sup>th</sup></span><span class="cls_018"> of October, 2021 Time Series and Panel Data in R</span></div>
+<div style="position:absolute;left:76.02px;top:455.38px" class="cls_012"><span class="cls_012">Time series and panel data lie at the heart of Econometrics. They contain more information,</span></div>
+<div style="position:absolute;left:76.02px;top:469.18px" class="cls_012"><span class="cls_012">more variability, and more complexities than cross-sectional data. Participants will learn how to</span></div>
+<div style="position:absolute;left:76.02px;top:482.98px" class="cls_012"><span class="cls_012">apply time series analysis on the selected dataset. They will also learn how to apply panel data</span></div>
+<div style="position:absolute;left:76.02px;top:496.78px" class="cls_012"><span class="cls_012">analysis by testing the fixed and random effects.</span></div>
+<div style="position:absolute;left:76.02px;top:516.28px" class="cls_010"><span class="cls_010">References: </span><span class="cls_025">Coghlan, A. (2015). </span><span class="cls_026">A little book of R for time series</span><span class="cls_025">. Available at: </span><A HREF="https://a-little-book-of-r-for-time-series.readthedocs.io/en/latest/">https://a-little-</A> </span></div>
+<div style="position:absolute;left:76.02px;top:530.08px" class="cls_009"><span class="cls_009"> </span><A HREF="https://a-little-book-of-r-for-time-series.readthedocs.io/en/latest/">book-of-r-for-time-series.readthedocs.io/en/latest/</A> </div>
+<div style="position:absolute;left:76.02px;top:545.02px" class="cls_025"><span class="cls_025">Hanck et al. (2020). </span><span class="cls_026">Introduction to Econometrics with R</span><span class="cls_025">. Available</span></div>
+<div style="position:absolute;left:76.02px;top:558.70px" class="cls_025"><span class="cls_025">at:</span><span class="cls_028"> </span><A HREF="https://www.econometrics-with-r.org/">https://www.econometrics-with-r.org/</A> </span></div>
+<div style="position:absolute;left:87.54px;top:584.08px" class="cls_005"><span class="cls_005">9:00- 10:30</span></div>
+<div style="position:absolute;left:168.80px;top:584.08px" class="cls_034"><span class="cls_034">Session 1: Time Series Analysis</span></div>
+<div style="position:absolute;left:222.80px;top:597.88px" class="cls_005"><span class="cls_005">a.  Decomposing Time Series</span></div>
+<div style="position:absolute;left:222.80px;top:611.68px" class="cls_005"><span class="cls_005">b.  ARIMA Models</span></div>
+<div style="position:absolute;left:257.00px;top:625.96px" class="cls_016"><span class="cls_016">15 minutes break</span></div>
+<div style="position:absolute;left:84.36px;top:640.24px" class="cls_005"><span class="cls_005">10:45 - 12:30</span></div>
+<div style="position:absolute;left:168.80px;top:640.24px" class="cls_034"><span class="cls_034">Session 2: Panel Data Analysis</span></div>
+<div style="position:absolute;left:222.80px;top:654.04px" class="cls_005"><span class="cls_005">a.  Fixed Effects</span></div>
+<div style="position:absolute;left:222.80px;top:667.84px" class="cls_005"><span class="cls_005">b.  Random Effects</span></div>
+<div style="position:absolute;left:264.50px;top:682.20px" class="cls_016"><span class="cls_016">Refreshment break</span></div>
+<div style="position:absolute;left:168.80px;top:696.48px" class="cls_016"><span class="cls_016">Applying Time Series or Panel Analysis to Selected Datasets in R +</span></div>
+<div style="position:absolute;left:82.02px;top:710.28px" class="cls_005"><span class="cls_005">13:15 - 14:30</span></div>
+<div style="position:absolute;left:168.80px;top:710.28px" class="cls_010"><span class="cls_010">Group Presentations of Analysis Done on Datasets During Entire</span></div>
+<div style="position:absolute;left:168.80px;top:724.08px" class="cls_010"><span class="cls_010">Workshop</span></div>
+<div style="position:absolute;left:76.02px;top:739.38px" class="cls_005"><span class="cls_005">14:30- 15:00</span></div>
+<div style="position:absolute;left:168.80px;top:739.38px" class="cls_016"><span class="cls_016">Closing Session</span></div>
+</div>
+<div style="position:absolute;left:50%;margin-left:-306px;top:2406px;width:612px;height:792px;border-style:outset;overflow:hidden">
+<div style="position:absolute;left:0px;top:0px">
+<img src="6ef6e496-1bbb-11ec-a980-0cc47a792c0a_id_6ef6e496-1bbb-11ec-a980-0cc47a792c0a_files/background4.jpg" width=612 height=792></div>
+<div style="position:absolute;left:76.02px;top:120.80px" class="cls_029"><span class="cls_029">Suggested Readings</span></div>
+<div style="position:absolute;left:76.02px;top:152.96px" class="cls_030"><span class="cls_030">Coghlan, A. (2015). </span><span class="cls_031">A little book of R for time series</span><span class="cls_030">. Available at: </span><A HREF="https://a-little-book-of-r-for-time-series.readthedocs.io/en/latest/">https://a-little-book-of-r-</A> </span></div>
+<div style="position:absolute;left:76.02px;top:168.80px" class="cls_032"><span class="cls_032"> </span><A HREF="https://a-little-book-of-r-for-time-series.readthedocs.io/en/latest/">for-time-series.readthedocs.io/en/latest/</A> </div>
+<div style="position:absolute;left:76.02px;top:196.70px" class="cls_030"><span class="cls_030">Hanck et al. (2020). </span><span class="cls_031">Introduction to Econometrics with R</span><span class="cls_030">. Available at:</span></div>
+<div style="position:absolute;left:76.02px;top:212.54px" class="cls_032"><span class="cls_032"> </span><A HREF="https://www.econometrics-with-r.org/">https://www.econometrics-with-r.org/</A> </div>
+<div style="position:absolute;left:76.02px;top:240.44px" class="cls_030"><span class="cls_030">James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). </span><span class="cls_031">An introduction to statistical</span></div>
+<div style="position:absolute;left:76.02px;top:256.28px" class="cls_031"><span class="cls_031">learning</span><span class="cls_030"> (Vol. 112, p. 18). New York: springer. Available at:</span></div>
+<div style="position:absolute;left:76.02px;top:272.18px" class="cls_032"><span class="cls_032"> </span><A HREF="http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf">http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf</A> </div>
+<div style="position:absolute;left:76.02px;top:300.02px" class="cls_030"><span class="cls_030">Wickham, H., & Grolemund, G. (2016). </span><span class="cls_031">R for data science: import, tidy, transform, visualize,</span></div>
+<div style="position:absolute;left:76.02px;top:315.92px" class="cls_031"><span class="cls_031">and model data</span><span class="cls_030">. " O'Reilly Media, Inc.". Available at: </span><A HREF="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</A> </span></div>
+<div style="position:absolute;left:76.02px;top:343.76px" class="cls_030"><span class="cls_030">Zuur, A., Ieno, E. N., & Meesters, E. (2009). </span><span class="cls_031">A Beginner's Guide to R</span><span class="cls_030">. Springer Science &</span></div>
+<div style="position:absolute;left:76.02px;top:359.66px" class="cls_030"><span class="cls_030">Business Media. Available at:</span></div>
+<div style="position:absolute;left:76.02px;top:375.50px" class="cls_032"><span class="cls_032"> </span><A HREF="http://197.136.134.32/bitstream/handle/123456780/5990/10.1007_978-0-387-93837-0.pdf?sequence=1&isAllowed=y">http://197.136.134.32/bitstream/handle/123456780/5990/10.1007_978-0-387-93837-</A> </div>
+<div style="position:absolute;left:76.02px;top:391.40px" class="cls_032"><span class="cls_032"> </span><A HREF="http://197.136.134.32/bitstream/handle/123456780/5990/10.1007_978-0-387-93837-0.pdf?sequence=1&isAllowed=y">0.pdf?sequence=1&isAllowed=y</A> </div>
+</div>
+
+</body>
+</html>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

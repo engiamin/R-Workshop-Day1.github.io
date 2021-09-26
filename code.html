@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>CODING WITH R</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Day 1</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">About Workshop</a>
+</li>
+<li>
+  <a href="agenda.html">Agenda</a>
+</li>
+<li>
+  <a href="start.html">Getting Started</a>
+</li>
+<li>
+  <a href="research.html">The Research</a>
+</li>
+<li>
+  <a href="code.html">Coding with R</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">CODING WITH R</h1>
+
+</div>
+
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<style type="text/css">
+  body{
+  font-size: 14pt;
+}
+</style>
+<div id="using-r-as-a-calculator" class="section level1">
+<h1>Using R as a Calculator</h1>
+<p>One of the most basic ways to use R is as a calculator. We can enter many math functions directly into the R Console.</p>
+<div style="margin-bottom:50px;">
+
+</div>
+<div id="arithmetic-operators" class="section level2">
+<h2>1. Arithmetic Operators</h2>
+<p>R can handle all known types of math operators.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Operator</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>+</code></td>
+<td align="center">Addition</td>
+</tr>
+<tr class="even">
+<td align="center"><code>-</code></td>
+<td align="center">Subtraction</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>*</code></td>
+<td align="center">Multiplication</td>
+</tr>
+<tr class="even">
+<td align="center"><code>/</code></td>
+<td align="center">Division</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>^</code> or <code>**</code></td>
+<td align="center">Exponentiation</td>
+</tr>
+</tbody>
+</table>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiI1KzNcblxuOC0yIFxuXG44LzIgXG5cbjUqNSBcblxuNSArIDIgKiAoNC0yKVxuXG4yXjJcblxuMC8wICNOYU4gbWVhbnMgbm90IGEgbnVtYmVyIChpLmUuIG5vdCBkZWZpbmVkKSJ9
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="math-functions" class="section level2">
+<h2>2. Math functions</h2>
+<table>
+<colgroup>
+<col width="14%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Function</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>abs(x)</code></td>
+<td align="center">Takes the absolute value of x</td>
+</tr>
+<tr class="even">
+<td align="center"><code>log(x,base=y)</code></td>
+<td align="center">Takes the logarithm of x with base y; if base is not specified, returns the natural logarithm</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>exp(x)</code></td>
+<td align="center">Returns the exponential of x</td>
+</tr>
+<tr class="even">
+<td align="center"><code>sqrt(x)</code></td>
+<td align="center">Returns the square root of x</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>factorial(x)</code></td>
+<td align="center">Returns the factorial of x (x!)</td>
+</tr>
+<tr class="even">
+<td align="center"><code>choose(x,y)</code></td>
+<td align="center">Returns the number of possible combinations when drawing y elements at a time from x possibilities</td>
+</tr>
+</tbody>
+</table>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhYnMoLTUpXG5cbiMgTG9nIGJhc2UgZVxubG9nKDQuNDgxNjg5KVxuXG4jIExvZyBiYXNlIDEwXG5sb2cxMCgxMDAwKVxuXG5leHAoMS41KVxuXG5zcXJ0KDI1KVxuXG5mYWN0b3JpYWwoNSlcblxuY2hvb3NlKDQsMikifQ==
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="logical-operators" class="section level2">
+<h2>3. Logical Operators</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Operator</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>&lt;</code></td>
+<td align="center">Less Than</td>
+</tr>
+<tr class="even">
+<td align="center"><code>&gt;</code></td>
+<td align="center">Greater Than</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>&lt;=</code></td>
+<td align="center">Less Than or Equal To</td>
+</tr>
+<tr class="even">
+<td align="center"><code>&gt;=</code></td>
+<td align="center">Greater Than or Equal To</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>==</code></td>
+<td align="center">Exactly Equal To</td>
+</tr>
+<tr class="even">
+<td align="center"><code>!=</code></td>
+<td align="center">Not Equal To</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>!a</code></td>
+<td align="center">Not a</td>
+</tr>
+<tr class="even">
+<td align="center"><code>a&amp;b</code></td>
+<td align="center">a AND b</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>a|b</code></td>
+<td align="center">a OR b</td>
+</tr>
+</tbody>
+</table>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhIDwtIGMoMToxMilcblxuYVxuXG5hID4gOVxuXG5hIDwgNFxuXG5hPjkgfCBhPDRcblxuYT45ICYgYTwxMlxuXG5hICE9IGMoMTo1KVxuXG4jaW5kZXhpbmdcbmFbYT45IHwgYTw0XSJ9
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="other-operators" class="section level2">
+<h2>4. Other Operators</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Operator</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>#</code></td>
+<td align="center">Comment</td>
+</tr>
+<tr class="even">
+<td align="center"><code>&lt;-</code></td>
+<td align="center">Assignment</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>:</code></td>
+<td align="center">Sequence</td>
+</tr>
+<tr class="even">
+<td align="center"><code>seq(x,y,step)</code></td>
+<td align="center">Sequence from x to y by step</td>
+</tr>
+</tbody>
+</table>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENvbW1lbnRzIGFyZSB2ZXJ5IGltcG9ydGFudCB3aGVuIGNvZGluZyBpbiBhbnkgcHJvZ3JhbW1pbmcgbGFuZ3VhZ2VcblxuIyBDcmVhdGUgYSB2YXJpYWJsZSBhLCBlcXVhbCB0byA1XG5hIDwtIDVcblxuIyBHZXQgdGhlIHNxdWFyZSBvZiBhIGFuZCBzdG9yZSBpbiBpdCBpbiBhIHZhcmlhYmxlIGJcblxuYiA8LSBhXjJcblxuIyBQcmludCB0aGUgc2VxdWVuY2UgZnJvbSBhIHRvIGIgd2l0aCBhIHN0ZXAgb2YgMiBhbmQgc3RvcmUgaW4gaW4gdmFyaWFibGUgY1xuXG5jIDwtIHNlcShhLGIsMilcblxuYyJ9
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+</div>
+<div id="objects-in-r" class="section level1">
+<h1>Objects in R</h1>
+<div id="numeric" class="section level2">
+<h2>1. Numeric</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhIDwtIDMuNVxuYiA8LSA1XG5cbmNsYXNzKGEpXG5jbGFzcyAoYikifQ==
+</div>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="character" class="section level2">
+<h2>2. Character</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJjIDwtIFwiSGVsbG8gV29ybGQhXCJcblxuY2xhc3MoYylcblxubmNoYXIoYykifQ==
+</div>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="integer" class="section level2">
+<h2>3. Integer</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjd3JpdGUgeW91ciBudW1iZXIgZm9sbG93ZWQgYnkgYSBjYXBpdGFsIExcblxuZCA8LSAzTFxuXG5jbGFzcyhkKSJ9
+</div>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="logical" class="section level2">
+<h2>4. Logical</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJlIDwtIDM+NFxuXG5lXG5cbmNsYXNzIChlKSJ9
+</div>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="factor" class="section level2">
+<h2>5. Factor</h2>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnZW5kZXIgPSBjKFwiTVwiLFwiRlwiKVxuXG5jbGFzcyhnZW5kZXIpXG5cbiMgQ29udmVydCBnZW5kZXIgaW50byBhIGZhY3RvciB3aXRoIHR3byBsZXZlbHNcbmdlbmRlcl9mIDwtIGFzLmZhY3RvcihnZW5kZXIpXG5cbmNsYXNzKGdlbmRlcl9mKVxuXG5sZXZlbHMoZ2VuZGVyX2YpIn0=
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+</div>
+<div id="vectors" class="section level1">
+<h1>Vectors</h1>
+<p>Vectors are the simplest data structures in R. They are sequences of elements of the same basic type.</p>
+<p>These types can be numeric, integer, complex, character, and logical. In R, the more complicated data structures are made with vectors as building-blocks.</p>
+<p>They are created using:</p>
+<ol style="list-style-type: decimal">
+<li>colon operator with numeric data
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2MSA8LSA1OjEzXG52MVxuXG52MiA8LSA2LjY6MTIuNlxudjIifQ==
+</div></li>
+<li>Using sequence (seq) operator</li>
+</ol>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2MyA8LSBzZXEoMCw1LDEuMSlcbnYzIn0=
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Using the c() function</li>
+</ol>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2NCA8LSBjKDEsMiwzLDQsNSlcbnY1IDwtIGMoNSw0LDMsMiwxKVxuXG52NiA8LSB2NCArIHY1XG52NlxuXG5jbGFzcyh2Nilcbmxlbmd0aCh2NilcblxuIyBUaGUgbG9naWNhbCBhbmQgbnVtZXJpYyB2YWx1ZXMgYXJlIGNvbnZlcnRlZCB0byBjaGFyYWN0ZXJzLlxudjcgPC0gYygnYXBwbGUnLCdyZWQnLDUsVFJVRSlcbnY3In0=
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="matrices" class="section level1">
+<h1>Matrices</h1>
+<p>Matrices are the R objects in which the elements are arranged in a two-dimensional rectangular layout. They contain elements of the same types.</p>
+<p>The basic syntax for creating a matrix in R is:</p>
+<p><code>matrix(data, nrow, ncol, byrow, dimnames)</code></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEVsZW1lbnRzIGFyZSBhcnJhbmdlZCBzZXF1ZW50aWFsbHkgYnkgcm93LlxuTTEgPC0gbWF0cml4KGMoMzoxNCksIG5yb3cgPSA0LCBieXJvdyA9IFRSVUUpXG5NMVxuXG4jIEVsZW1lbnRzIGFyZSBhcnJhbmdlZCBzZXF1ZW50aWFsbHkgYnkgY29sdW1uLlxuTTIgPC0gbWF0cml4KGMoMzoxNCksIG5yb3cgPSA0LCBieXJvdyA9IEZBTFNFKVxucHJpbnQoTTIpXG5cbiMgRGVmaW5lIHRoZSBjb2x1bW4gYW5kIHJvdyBuYW1lcy5cbnJvd25hbWVzID0gYyhcInJvdzFcIiwgXCJyb3cyXCIsIFwicm93M1wiLCBcInJvdzRcIilcbmNvbG5hbWVzID0gYyhcImNvbDFcIiwgXCJjb2wyXCIsIFwiY29sM1wiKVxuXG5NMyA8LSBtYXRyaXgoYygzOjE0KSwgbnJvdyA9IDQsIGJ5cm93ID0gVFJVRSwgZGltbmFtZXMgPSBsaXN0KHJvd25hbWVzLCBjb2xuYW1lcykpXG5NMyJ9
+</div>
+<p>You can do matrix operations in R.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSB0d28gMngzIG1hdHJpY2VzLlxubWF0cml4MSA8LSBtYXRyaXgoYygzLCA5LCAtMSwgNCwgMiwgNiksIG5yb3cgPSAyLCBieXJvdyA9VFJVRSlcbm1hdHJpeDFcblxubWF0cml4MiA8LSBtYXRyaXgoYyg1LCAyLCAwLCA5LCAzLCA0KSwgbnJvdyA9IDIsIGJ5cm93PVRSVUUpXG5tYXRyaXgyXG5cbiMgQWRkIHRoZSBtYXRyaWNlc1xuQWRkX01hdHJpeCA8LSBtYXRyaXgxICsgbWF0cml4MlxucHJpbnQoXCJUaGUgcmVzdWx0IG9mIGFkZGl0aW9uIGlzXCIpIFxucHJpbnQoQWRkX01hdHJpeClcblxuIyBTdWJ0cmFjdCB0aGUgbWF0cmljZXNcblN1YnRyYWN0X01hdHJpeCA8LSBtYXRyaXgxIC0gbWF0cml4MlxucHJpbnQoXCJUaGUgcmVzdWx0IG9mIHN1YnRyYWN0aW9uIGlzXCIpIFxucHJpbnQoU3VidHJhY3RfTWF0cml4KVxuXG5cbiMgTXVsdGlwbHkgdGhlIG1hdHJpY2VzXG5NdWx0aXBseV9NYXRyaXggPC0gbWF0cml4MSAqIG1hdHJpeDJcbnByaW50KFwiVGhlIHJlc3VsdCBvZiBtdWx0aXBsaWNhdGlvbiBpc1wiKSBcbnByaW50KE11bHRpcGx5X01hdHJpeClcblxuIyBEaXZpZGUgdGhlIG1hdHJpY2VzXG5EaXZpZGVfTWF0cml4IDwtIG1hdHJpeDEgLyBtYXRyaXgyXG5wcmludChcIlRoZSByZXN1bHQgb2YgZGl2aXNpb24gaXNcIikgXG5wcmludChEaXZpZGVfTWF0cml4KSJ9
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="lists" class="section level1">
+<h1>Lists</h1>
+<p>Lists are the R objects which contain elements of different types like − numbers, strings, vectors and another list inside it. A list can also contain a matrix or a function as its elements. List is created using list() function.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIGxpc3QgY29udGFpbmluZyBhIHZlY3RvciwgYSBtYXRyaXggYW5kIGEgbGlzdC5cbmxpc3RfZGF0YSA8LSBsaXN0KGMoXCJKYW5cIixcIkZlYlwiLFwiTWFyXCIpLCBcbiAgICAgICAgICAgICAgICAgIG1hdHJpeChjKDMsOSw1LDEsLTIsOCksIG5yb3cgPSAyKSxcbiAgICAgICAgICAgICAgICAgIGxpc3QoXCJncmVlblwiLDEyLjMpKVxuXG4jIEdpdmUgbmFtZXMgdG8gdGhlIGVsZW1lbnRzIGluIHRoZSBsaXN0LlxubmFtZXMobGlzdF9kYXRhKSA8LSBjKFwiTW9udGhzIFZlY3RvclwiLCBcIk1hdHJpeFwiLCBcIkxpc3RcIilcblxuIyBQcmludCBsaXN0XG5saXN0X2RhdGEifQ==
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="dataframes" class="section level1">
+<h1>DataFrames</h1>
+<p>A data frame is a table or a two-dimensional array-like structure in which each column contains values of one variable and each row contains one set of values from each column.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSB0aGUgZGF0YSBmcmFtZVxuc3R1ZGVudF9kZiA8LSBkYXRhLmZyYW1lKFxuICAgc3R1ZGVudF9pZCA9IGMgKDE6NSksIFxuICAgc3R1ZGVudF9uYW1lID0gYyhcIlJpY2tcIixcIkRhblwiLFwiTWljaGVsbGVcIixcIlJ5YW5cIixcIkdhcnlcIiksXG4gICBlY29uX2dyYWRlID0gYyg2OCw5OCw1NSw4Nyw3MCksIFxuICAgc3RhdF9ncmFkZSA9IGMoMjksNjgsMzUsODcsOTApLFxuICAgYmlydGhfZGF0ZSA9IGFzLkRhdGUoYyhcIjIwMTItMDEtMDFcIiwgXCIyMDEzLTA5LTIzXCIsIFwiMjAxNC0xMS0xNVwiLCBcIjIwMTQtMDUtMTFcIixcbiAgICAgIFwiMjAxNS0wMy0yN1wiKSlcbilcblxuc3R1ZGVudF9kZlxuXG4jIEdldCB0aGUgc3RydWN0dXJlIG9mIHRoZSBkYXRhZnJhbWVcbnN0cihzdHVkZW50X2RmKVxuXG4jIEdldCB0aGUgc3VtbWFyeSBvZiB2YXJpYWJsZXMgaW4gdGhlIGRhdGFmcmFtZVxuc3VtbWFyeShzdHVkZW50X2RmKVxuXG4jIEdldCB0aGUgbmFtZXMgY29sdW1uIG9mIHRoZSBkYXRhZnJhbWVcbnN0dWRlbnRfZGYkc3R1ZGVudF9uYW1lXG5cblxuIyBBZGQgYSBuZXcgY29sdW1uIGNvbnRhaW5pbmcgZ2VuZGVyXG5zdHVkZW50X2RmJGdlbmRlciA8LSBmYWN0b3IoYyhcIk1hbGVcIixcIk1hbGVcIixcIkZlbWFsZVwiLFwiTWFsZVwiLFwiTWFsZVwiKSlcblxuIyBTaG93IG9ubHkgZmlyc3QgdHdvIHJvd3Mgb2YgZGF0YWZyYW1lXG5oZWFkKHN0dWRlbnRfZGYsMikifQ==
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="indexing" class="section level1">
+<h1>Indexing</h1>
+<p>There are multiple ways to access or replace values in vectors or other data structures. The most common approach is to use “indexing”. This is also referred to as “slicing”. In R, we use square brackets <code>[]</code> for indexing. Indexing in R begins at 1 (not zero like in Python).</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI1xuIyBJbmRleGluZyBpbiBWZWN0b3JzICNcbiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjXG5cbiMgQWNjZXNzaW5nIHZlY3RvciBlbGVtZW50cyB1c2luZyBwb3NpdGlvbi5cbnYgPC0gYyhcIlN1blwiLFwiTW9uXCIsXCJUdWVcIixcIldlZFwiLFwiVGh1cnNcIixcIkZyaVwiLFwiU2F0XCIpXG52aSA8LSB2W2MoMiwzLDYpXVxucHJpbnQodmkpXG5cbiMgQWNjZXNzaW5nIHZlY3RvciBlbGVtZW50cyB1c2luZyBsb2dpY2FsIGluZGV4aW5nLlxudmlpIDwtIHZbYyhUUlVFLEZBTFNFLEZBTFNFLEZBTFNFLEZBTFNFLFRSVUUsRkFMU0UpXVxucHJpbnQodmlpKVxuXG4jIEFjY2Vzc2luZyB2ZWN0b3IgZWxlbWVudHMgdXNpbmcgbmVnYXRpdmUgaW5kZXhpbmcuXG52aWlpIDwtIHZbYygtMiwtNSldXG5wcmludCh2aWlpKVxuXG4jIEFjY2Vzc2luZyB2ZWN0b3IgZWxlbWVudHMgdXNpbmcgMC8xIGluZGV4aW5nLlxudml2IDwtIHZbYygwLDAsMCwwLDAsMCwxKV1cbnByaW50KHZpdikifQ==
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcbiMgSW5kZXhpbmcgaW4gTWF0cmljZXMgI1xuIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjXG5cbiMgRGVmaW5lIHRoZSBjb2x1bW4gYW5kIHJvdyBuYW1lcy5cbnJvd25hbWVzID0gYyhcInJvdzFcIiwgXCJyb3cyXCIsIFwicm93M1wiLCBcInJvdzRcIilcbmNvbG5hbWVzID0gYyhcImNvbDFcIiwgXCJjb2wyXCIsIFwiY29sM1wiKVxuXG4jIENyZWF0ZSB0aGUgbWF0cml4LlxuUCA8LSBtYXRyaXgoYygzOjE0KSwgbnJvdyA9IDQsIGJ5cm93ID0gVFJVRSwgZGltbmFtZXMgPSBsaXN0KHJvd25hbWVzLCBjb2xuYW1lcykpXG5cbiMgQWNjZXNzIHRoZSBlbGVtZW50IGF0IDNyZCBjb2x1bW4gYW5kIDFzdCByb3cuXG5wcmludChQWzEsM10pXG5cbiMgQWNjZXNzIHRoZSBlbGVtZW50IGF0IDJuZCBjb2x1bW4gYW5kIDR0aCByb3cuXG5wcmludChQWzQsMl0pXG5cbiMgQWNjZXNzIG9ubHkgdGhlICAybmQgcm93LlxucHJpbnQoUFsyLF0pXG5cbiMgQWNjZXNzIG9ubHkgdGhlIDNyZCBjb2x1bW4uXG5wcmludChQWywzXSkifQ==
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIyMjIyMjIyMjIyMjIyMjIyMjIyNcbiMgSW5kZXhpbmcgaW4gTGlzdHMgI1xuIyMjIyMjIyMjIyMjIyMjIyMjIyMjXG4jIENyZWF0ZSBhIGxpc3QgY29udGFpbmluZyBhIHZlY3RvciwgYSBtYXRyaXggYW5kIGEgbGlzdC5cbmxpc3RfZGF0YSA8LSBsaXN0KGMoXCJKYW5cIixcIkZlYlwiLFwiTWFyXCIpLCBtYXRyaXgoYygzLDksNSwxLC0yLDgpLCBucm93ID0gMiksXG4gICBsaXN0KFwiZ3JlZW5cIiwxMi4zKSlcblxuIyBHaXZlIG5hbWVzIHRvIHRoZSBlbGVtZW50cyBpbiB0aGUgbGlzdC5cbm5hbWVzKGxpc3RfZGF0YSkgPC0gYyhcIjFzdCBRdWFydGVyXCIsIFwiQV9NYXRyaXhcIiwgXCJBIElubmVyIGxpc3RcIilcblxuIyBBY2Nlc3MgdGhlIGZpcnN0IGVsZW1lbnQgb2YgdGhlIGxpc3QuXG5wcmludChsaXN0X2RhdGFbMV0pXG5cbiMgQWNjZXNzIHRoZSB0aHJpZCBlbGVtZW50LiBBcyBpdCBpcyBhbHNvIGEgbGlzdCwgYWxsIGl0cyBlbGVtZW50cyB3aWxsIGJlIHByaW50ZWQuXG5wcmludChsaXN0X2RhdGFbM10pXG5cbiMgQWNjZXNzIHRoZSBsaXN0IGVsZW1lbnQgdXNpbmcgdGhlIG5hbWUgb2YgdGhlIGVsZW1lbnQuXG5wcmludChsaXN0X2RhdGEkQV9NYXRyaXgpIn0=
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI1xuIyBJbmRleGluZyBpbiBEYXRhZnJhbWVzICNcbiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjXG5zdHVkZW50X2RmIDwtIGRhdGEuZnJhbWUoXG4gICBzdHVkZW50X2lkID0gYyAoMTo1KSwgXG4gICBzdHVkZW50X25hbWUgPSBjKFwiUmlja1wiLFwiRGFuXCIsXCJNaWNoZWxsZVwiLFwiUnlhblwiLFwiR2FyeVwiKSxcbiAgIGVjb25fZ3JhZGUgPSBjKDY4LDk4LDU1LDg3LDcwKSwgXG4gICBzdGF0X2dyYWRlID0gYygyOSw2OCwzNSw4Nyw5MCksXG4gICBiaXJ0aF9kYXRlID0gYXMuRGF0ZShjKFwiMjAxMi0wMS0wMVwiLCBcIjIwMTMtMDktMjNcIiwgXCIyMDE0LTExLTE1XCIsIFwiMjAxNC0wNS0xMVwiLFxuICAgICAgXCIyMDE1LTAzLTI3XCIpKVxuKVxuXG4jIEV4dHJhY3QgU3BlY2lmaWMgY29sdW1uc1xuc3R1ZGVudF9jb2xzIDwtIGRhdGEuZnJhbWUoc3R1ZGVudF9kZiRzdHVkZW50X25hbWUsc3R1ZGVudF9kZiRlY29uX2dyYWRlKVxuc3R1ZGVudF9jb2xzXG5cblxuIyBFeHRyYWN0IGZpcnN0IHR3byByb3dzXG5zdHVkZW50X3Jvd3MgPC0gc3R1ZGVudF9kZlsxOjIsXVxuc3R1ZGVudF9yb3dzXG5cbiMgRXh0cmFjdCAzcmQgYW5kIDV0aCByb3cgd2l0aCAybmQgYW5kIDR0aCBjb2x1bW5cbnN0dWRlbnRfcm93c19jb2xzIDwtIHN0dWRlbnRfZGZbYygzLDUpLGMoMiw0KV1cbnN0dWRlbnRfcm93c19jb2xzIn0=
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="missing-values" class="section level1">
+<h1>Missing Values</h1>
+<p>Missing values in R are coded NA (i.e. not assigned)</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4PC0gYygxLCBOQSwgMywgTkEpXG54XG5cbiMgQW55IGFyaXRobWV0aWMgb3BlcmF0aW9uIHdpdGggTkEgcmV0dXJucyBOQVxuMipOQVxuMytOQVxuXG4jIFdoaWNoIGVsZW1lbnRzIGluIHRoZSB2ZWN0b3IgYXJlIE5Bcz9cbmlzLm5hKHgpXG5cbiMgR2V0IGluZGljaWVzIG9mIE5BIGVsZW1udHNcbndoaWNoKGlzLm5hKHgpKVxuXG4jIEhvdyBtYW55IGVsZW1lbnRzIG9mIHggYXJlIE5Bcz9cbmxlbmd0aCh3aGljaChpcy5uYSh4KSkpIn0=
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERyYXcgMTAwMCByYW5kb20gdmFsdWVzIGZyb20gYSBub3JtYWwgZGlzdHJpYnV0aW9uIHVzaW5nIHRoZSBybm9ybSgpIGZ1bmN0aW9uIGFuZCBzdG9yZSBpdCBpbiB4XG54PC0gcm5vcm0oMTAwMClcbnhcbiMgUGxvdCBhIHNpbXBsZSBoaXN0b2dyYW1cbmhpc3QoeClcblxuIyBDcmVhdGUgYSB2ZWN0b3Igb2YgMTAwMCBOQXMgYW5kIHN0b3JlIGl0IGluIHogdXNpbmcgdGhlIHJlcCgpIGZ1bmN0aW9uXG56IDwtIHJlcChOQSwgMTAwMClcbnpcblxuIyBUYWtlIGEgcmFuZG9tIHNhbXBsZSB3aXRob3V0IHJlcGxhY2VtZW50IHVzaW5nIHRoZSBmdW5jdGlvbiBzYW1wbGUoKSBmcm9tIGJvdGggeCBhbmQgeiBzbyB0aGF0IG49NTAwXG5teV9kYXRhPC0gc2FtcGxlKGMoeCwgeiksIDUwMCwgcmVwbGFjZT1GQUxTRSlcbm15X2RhdGFcblxuXG4jIE1hbnkgZnVuY3Rpb25zIHdpbGwgbm90IHdvcmsgaWYgd2UgaGF2ZSBOQXNcbm1lYW4obXlfZGF0YSlcbm1lZGlhbihteV9kYXRhKVxuc2QobXlfZGF0YSlcblxuIyBJbiB0aGlzIGNhc2UsIHdlIGhhdmUgdG8gYWRkIHRoZSBhcmd1bWVudCBcIm5hLnJtPVRSVUVcIlxubWVhbih4LCBuYS5ybSA9IFRSVUUpXG5tZWRpYW4oeCwgbmEucm09VFJVRSlcbnNkKHgsIG5hLnJtPVRSVUUpXG5cbiMgSG93IG1hbnkgTkFzIGFyZSBpbiBteV9kYXRhP1xubWlzc2luZ3M8LSBpcy5uYShteV9kYXRhKVxuIyMgTWV0aG9kIDFcbnN1bShtaXNzaW5ncykgXG4jIyBNZXRob2QgMlxudGFibGUobWlzc2luZ3MpXG4jIyBNZXRob2QgM1xubGVuZ3RoKHdoaWNoKGlzLm5hKG15X2RhdGEpKSlcblxuXG4jIEdldHRpbmcgcmlkIG9mIE5BcyB1c2luZyBuYS5vbWl0KClcbm15X2RhdGEyIDwtIG5hLm9taXQobXlfZGF0YSlcbmxlbmd0aCh3aGljaChpcy5uYShteV9kYXRhMikpKSAjTm93LCB0aGUgbm8uIG9mIE5BcyBpcyB6ZXJvXG5cblxuIyBBbm90aGVyIG1ldGhvZCB0byBvbWl0IE5BcyBpcyBieSBpbmRleGluZyBcbm15X2RhdGEzPC0gbXlfZGF0YVshaXMubmEobXlfZGF0YSldXG5sZW5ndGgod2hpY2goaXMubmEobXlfZGF0YTMpKSkgI05vdywgdGhlIG5vLiBvZiBOQXMgaXMgemVybyJ9
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="conditional-statements" class="section level1">
+<h1>Conditional statements</h1>
+<p>Conditional statements are an important part of programming. This can be achieved in R using the conditional <code>if...else</code> statement.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDVcbmlmKHggPiAwKXtcbnByaW50KFwiUG9zaXRpdmUgbnVtYmVyXCIpXG59In0=
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIC01XG5pZih4ID4gMCl7XG5wcmludChcIk5vbi1uZWdhdGl2ZSBudW1iZXJcIilcbn0gZWxzZSB7XG5wcmludChcIk5lZ2F0aXZlIG51bWJlclwiKVxufSJ9
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDBcbmlmICh4IDwgMCkge1xucHJpbnQoXCJOZWdhdGl2ZSBudW1iZXJcIilcbn0gZWxzZSBpZiAoeCA+IDApIHtcbnByaW50KFwiUG9zaXRpdmUgbnVtYmVyXCIpXG59IGVsc2VcbnByaW50KFwiWmVyb1wiKSJ9
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="loops" class="section level1">
+<h1>Loops</h1>
+<p>Loops are typically used to repeat the same code a number of times for a set of cases.</p>
+<p>In R we avoid loops wherever we can, as they tend to be slower than ‘vectorized’ computation. We also generally prefer functions like <code>apply</code> as this is more concise. .</p>
+<p>There are two types of loops:</p>
+<ul>
+<li>for-loops: repeats the same code a predefined number of times.</li>
+<li>while-loops: continues until a certain condition has been met (and is therefore prone to the dreaded “infinite loop” that never finishes!)</li>
+</ul>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJmb3IgKGkgaW4gMTozKSB7XG4gICAgb3V0cHV0IDwtIHBhc3RlKCd0aGUgc3F1YXJlIG9mJywgaSwgJ2lzJywgaSAqIGkpXG4gICAgcHJpbnQob3V0cHV0KVxufSJ9
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJpIDwtIDBcbndoaWxlIChpIDwgNikge1xuICBvdXRwdXQgPC0gcGFzdGUoaSwgXCJpcyBzdGlsbCBsZXNzIHRoYW4gNi5cIilcbiAgcHJpbnQob3V0cHV0KVxuICBpID0gaSsxXG59In0=
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="user-defined-functions" class="section level1">
+<h1>User-defined Functions</h1>
+<p>One of the great strengths of R is the user’s ability to add functions. In fact, many of the functions in R are actually functions of functions. The structure of a function is given below.</p>
+<blockquote>
+<p><code>myfunction &lt;- function(arg1, arg2, ... ){ statements return(object) }</code></p>
+</blockquote>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIENyZWF0ZSBhIGZ1bmN0aW9uIHRoYXQgcmV0dXJucyB0aGUgbWVhbiwgc3RhbmRhcmQgZGV2aWF0aW9uLCBtYXhpbXVtLCBtaW5pbXVtLCBvZiBhbnkgbnVtZXJpY2FsIHZlY3RvciB5b3UgI2lucHV0IGFuZCBjYWxsIGl0IG15LnN1bW1hcnlcblxuXG5teS5zdW1tYXJ5PC0gZnVuY3Rpb24oeCl7XG4gIG91dHB1dDEgPC0gbWVhbih4KSAjIGZpcnN0IHN0YXRlbWVudFxuICBvdXRwdXQyIDwtIHNkKHgpICMgc2Vjb25kIHN0YXRlbWVudCBcbiAgb3V0cHV0MyA8LSBtaW4oeCkgIyB0aGlyZCBzdGF0ZW1lbnRcbiAgb3V0cHV0NCA8LSBtYXgoeCkgIyBmb3VydGggc3RhdGVtZW50XG4gIHJlc3VsdCA8LSBjKG91dHB1dDEsIG91dHB1dDIsIG91dHB1dDMsIG91dHB1dDQpICMgdGhlIGVuZCByZXN1bHQgeW91IHdhbnRcbiAgbmFtZXMocmVzdWx0KTwtIGMoXCJtZWFuXCIsIFwic2RcIiwgXCJtaW5cIiwgXCJtYXhcIikgIyBhZGQgbGFiZWxzIHRvIGVuZCByZXN1bHRcbiAgcmV0dXJuKHJlc3VsdCkgIyBUZWxsIFIgdG8gcmV0dXJuIHRoZSBvYmplY3QgYWZ0ZXIgcnVubmluZyB0aGUgZnVuY3Rpb24gb24gbXkgdmVjdG9yIFhcbn1cblxuXG4jIENyZWF0ZSB0d28gdmVjdG9ycyBjb250YWluaW5nIDEwMCByYW5kb20gZ3JhZGVzIGZyb20gYSBub3JtYWwgZGlzdHJpYnV0aW9uIHdpdGggbWVhbj02MCBhbmQgc2Q9MjUpXG5cbmVjb25fZ3JhZGVzIDwtIHJub3JtKDEwMCxtZWFuPTYwLHNkPTI1KVxuc3RhdF9ncmFkZXMgPC0gcm5vcm0oMTAwLCBtZWFuPTYwLCBzZD0yNSlcblxuaGlzdChlY29uX2dyYWRlcylcbmhpc3Qoc3RhdF9ncmFkZXMpXG5cbiMgVXNlIG15LnN1bW1hcnkgZnVuY3Rpb24gdG8gZ2V0IHN1bW1hcnkgc3RhdGlzdGljcyBmb3IgdGhlIGdyYWRlc1xubXkuc3VtbWFyeShlY29uX2dyYWRlcylcbm15LnN1bW1hcnkoc3RhdF9ncmFkZXMpIn0=
+</div>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="installing-packages" class="section level1">
+<h1>Installing Packages</h1>
+<p>As we move through the rest of this workshop we will be working with a number of packages that need to be installed on the computer and called everytime we want to use them.</p>
+<p>Some of the packages that we will be using:</p>
+<ul>
+<li><code>openxlsx</code> for reading, writing and editing xlsx files.</li>
+<li><code>tidyr</code> for data tidying.</li>
+<li><code>ggplot2</code> for data visualisation.</li>
+<li><code>dplyr</code> for data manipulation.</li>
+</ul>
+<p>The easiest way to install a package is to use the command:</p>
+<blockquote>
+<p><code>install.packages(NameOfPackage)</code></p>
+</blockquote>
+<p>Once we have installed packages, we must call them into R in order to use them. This must be done each time you start a new document or R session. We call packages with the following command:</p>
+<blockquote>
+<p><code>library(NameOfPackage)</code></p>
+</blockquote>
+<div style="margin-bottom:80px;">
+
+</div>
+</div>
+<div id="getting-help-in-r" class="section level1">
+<h1>Getting Help in R</h1>
+<p>One of the most important aspects of learning any programming language is getting help when stuck (which will certainly happen alot!). No matter how skilled of a programmer you are, you always encounter new functions and need help understanding how to use them.</p>
+<p>In R, the most direct ways to ask for help are:</p>
+<div id="the-help-function" class="section level2">
+<h2>1. The help() Function</h2>
+<p>To get online help within an R session we use the help() function. This will allow us to see the documentation on a function that we are interested in.</p>
+<blockquote>
+<p><code>help(NameOfFunction)</code></p>
+</blockquote>
+</div>
+<div id="the-question-mark" class="section level2">
+<h2>2. The question mark (?)</h2>
+<blockquote>
+<p><code>?NameOfFunction</code></p>
+</blockquote>
+</div>
+<div id="internet-help" class="section level2">
+<h2>3. Internet help</h2>
+<p>There are numerous resources for finding help understanding R and creating code on the internet. My preferred method is googling the problem I am having and finding solutions on <a href="https://stackoverflow.com/">StackOverflow</a></p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

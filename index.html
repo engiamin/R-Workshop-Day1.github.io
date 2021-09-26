@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>ABOUT WORKSHOP</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Day 1</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">About Workshop</a>
+</li>
+<li>
+  <a href="agenda.html">Agenda</a>
+</li>
+<li>
+  <a href="start.html">Getting Started</a>
+</li>
+<li>
+  <a href="research.html">The Research</a>
+</li>
+<li>
+  <a href="code.html">Coding with R</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">ABOUT WORKSHOP</h1>
+
+</div>
+
+
+<style type="text/css">
+  body{
+  font-size: 14pt;
+}
+</style>
+<div style="margin-bottom:50px;">
+
+</div>
+<div id="about-this-workshop" class="section level1">
+<h1>About this Workshop</h1>
+<p>This workshop aims to walk you through the basics of R and give you the ability to go from not having R on your computer to doing analysis with <strong>R</strong> in a few days!</p>
+<p><strong>R</strong> is a programming language which is highly used in statistics. <strong>R</strong> is becoming more and more popular due to two major reasons:</p>
+<ol style="list-style-type: decimal">
+<li>R is open source.</li>
+<li>R has most of the latest statistical methods.</li>
+<li>R gives you the freedom to program almost anything you like.</li>
+</ol>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="what-to-expect" class="section level1">
+<h1>What to Expect</h1>
+<p>The goal of this workshop is to give you a guided introduction to R. I will walk you through the analysis of an entire research including:</p>
+<ul>
+<li>Getting Started with R</li>
+<li>Data in R</li>
+<li>The Tidyverse</li>
+<li>Exploring Data in R</li>
+<li>Graphing Data in R</li>
+<li>Modeling Data in R</li>
+</ul>
+<div style="margin-bottom:50px;">
+
+</div>
+</div>
+<div id="project" class="section level1">
+<h1>Project</h1>
+<div id="project-overview" class="section level2">
+<h2>Project Overview</h2>
+<p>In this workshop, you are required to analyze a dataset and then communicate your findings about it in the last day. You will use the techniques and methods learned in each day of the R workshop to achieve your goal. For the project, you will conduct your own data analysis and create a presentation to share your findings. You should start by taking a look at your dataset and brainstorming what questions you could answer using it. Then you should use R to answer the questions you are most interested in and create a presentation sharing the answers.</p>
+<div style="margin-bottom:30px;">
+
+</div>
+</div>
+<div id="why-this-project" class="section level2">
+<h2>Why this Project?</h2>
+<p>In this project, you’ll go through the data analysis process and see how everything fits together using R. Learning any new programming language involves practice, practice, practice, and more practice! This project serves as a real hands-on training on data analysis using R in an interactive and engaging atmosphere.</p>
+<div style="margin-bottom:30px;">
+
+</div>
+</div>
+<div id="step-1-choose-your-dataset" class="section level2">
+<h2><em>Step (1): Choose your Dataset</em></h2>
+<p>You can choose any dataset of interest to you to do your analysis on. If you do not have a dataset in mind, you can choose a dataset from the following:</p>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="53%" />
+<col width="23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Data Set</strong></th>
+<th><strong>Overview and Notes</strong></th>
+<th><strong>Example Questions</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://www.google.com/url?q=http://www.gapminder.org/data/&amp;sa=D&amp;source=editors&amp;ust=1631621814533000&amp;usg=AOvVaw2IKzjxVTBXuJMlm1bcNzTL"><strong>Gapminder World</strong></a></td>
+<td>Gapminder has collected a lot of information about how people live their lives in different countries, tracked across the years, and on a number of different indicators.</td>
+<td>Have certain regions of the world been growing in your selected metrics better than others? Are there trends that can be observed between the selected metrics?</td>
+</tr>
+<tr class="even">
+<td><a href="https://unstats.un.org/sdgs/indicators/database/"><strong>SDG Data</strong></a></td>
+<td>The Global SDG Indicators Database platform provides access to data compiled through the UN System regarding the performance of countries in achieving the SDGs through tracking indicator values across the years.</td>
+<td>How far did Egypt progress compared to other similar countries in achieving certain SDGs?</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.worldvaluessurvey.org/WVSContents.jsp"><strong>WVS Data</strong></a></td>
+<td>The World Values Survey (WVS) is an international research program devoted to the scientific and academic study of social, political, economic, religious and cultural values of people in the world. The project’s goal is to assess which impact values stability or change over time has on the social, political and economic development of countries and societies.</td>
+<td>How did certain cultural traditions evolve/become extinct through the years in the Arab region?</td>
+</tr>
+</tbody>
+</table>
+<div style="margin-bottom:30px;">
+
+</div>
+</div>
+<div id="step-2-brainstorm-your-questions" class="section level2">
+<h2><em>Step (2): Brainstorm your Questions</em></h2>
+<p>Brainstorm some questions you could answer using the data set you chose. You can find sample questions in the data set options to help you get started Try and suggest questions that promote looking at relationships between multiple variables. You should aim to analyze at least one dependent variable and five independent variables in your investigation. Also, make sure to take time into consideration to be able to apply time series analysis and/or panel analysis to your data.</p>
+<div style="margin-bottom:30px;">
+
+</div>
+</div>
+<div id="step-3-analyze-your-data" class="section level2">
+<h2><em>Step (3): Analyze your Data</em></h2>
+<p>Throughout the workshop, you will learn how to read, clean, explore and analyze your data using R. Session 3 of each day is dedicated to applying the topics tackled in each day to your dataset. Use this time to apply what you have learned to your dataset. Assistance and guidance will be provided throughout the session.</p>
+<div style="margin-bottom:30px;">
+
+</div>
+</div>
+<div id="step-4-share-your-findings" class="section level2">
+<h2><em>Step (4): Share your Findings</em></h2>
+<p>Once you have finished analyzing the data, create a presentation that shares the findings you found most interesting. Share your findings alongside the code you used to perform the analysis. Each group will present their findings in day 5 during the last session to conclude the workshop.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
